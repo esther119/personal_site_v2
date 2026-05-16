@@ -315,7 +315,6 @@ export function MuseumHero() {
             left: 0,
             bottom: 0,
             width: "62%",
-            cursor: "crosshair",
             perspective: 1400,
             perspectiveOrigin: "center",
           }}
@@ -340,39 +339,6 @@ export function MuseumHero() {
             </div>
           </div>
 
-          {reveal.intensity > 0.05 && (
-            <div
-              style={{
-                position: "absolute",
-                left: `${reveal.mx * 100}%`,
-                top: `${reveal.my * 100}%`,
-                transform: `translate(-50%, -50%) rotate(${reveal.angle}rad)`,
-                width: 2,
-                height: 80,
-                background: `rgba(255,255,255,${0.6 * reveal.intensity})`,
-                boxShadow: "0 0 12px rgba(0,0,0,0.3)",
-                pointerEvents: "none",
-              }}
-            />
-          )}
-          {reveal.intensity > 0.05 && (
-            <div
-              style={{
-                position: "absolute",
-                left: `${reveal.mx * 100}%`,
-                top: `${reveal.my * 100}%`,
-                transform: "translate(-50%, -50%)",
-                width: 10,
-                height: 10,
-                borderRadius: "50%",
-                background: styles.warm,
-                opacity: reveal.intensity,
-                boxShadow:
-                  "0 0 0 2px rgba(255,255,255,0.8), 0 4px 12px rgba(0,0,0,0.25)",
-                pointerEvents: "none",
-              }}
-            />
-          )}
         </div>
 
         {/* Pagination */}
