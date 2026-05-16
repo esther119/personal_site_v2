@@ -185,11 +185,11 @@ export function MuseumHero() {
   }
 
   const i = reveal.intensity;
-  const tiltY = (reveal.mx - 0.5) * 8 * i;
-  const tiltX = (0.5 - reveal.my) * 5 * i;
-  const tx = (reveal.mx - 0.5) * 14 * i;
-  const ty = (reveal.my - 0.5) * 10 * i;
-  const sc = 1 + 0.03 * i;
+  const tiltY = (reveal.mx - 0.5) * 3 * i;
+  const tiltX = (0.5 - reveal.my) * 2 * i;
+  const tx = (reveal.mx - 0.5) * 5 * i;
+  const ty = (reveal.my - 0.5) * 3.5 * i;
+  const sc = 1 + 0.012 * i;
 
   return (
     <div
