@@ -1,17 +1,31 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import { Cormorant_Garamond, IBM_Plex_Mono, Inter_Tight } from "next/font/google";
 
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Esther Yang",
-  description: "Let learning as a experience, not transaction.",
+  title: "Esther Yang — Still asking why",
+  description:
+    "Software engineer and ML practitioner from Taipei, now in San Francisco.",
 };
 
 export default function RootLayout({
@@ -20,7 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={sourceSans.variable}>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${plexMono.variable} ${interTight.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
