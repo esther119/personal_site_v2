@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# personal_site_v2
 
-## Getting Started
+A redesign-friendly personal site powered by Notion content.
 
-First, run the development server:
+## Content Source
+
+Notion database: https://selflearning.notion.site/46a79c7aceaf46f399dc775ab35e3ebd
+
+Edit pages in Notion (`title`, `publish`, `inMenu`, `inList`, `url`, `description`, etc.) and the site will reflect changes after rebuild/revalidate.
+
+## Local Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Without a Notion token, the app uses local seed data so you can work on design immediately.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Notion API Setup
 
-## Learn More
+1. Create an integration at https://www.notion.so/my-integrations
+2. Copy the secret into `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NOTION_TOKEN=secret_...
+NOTION_DATABASE_ID=46a79c7aceaf46f399dc775ab35e3ebd
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Open your Notion database, then add the integration from Connections.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+- `src/lib/notion.ts` fetches pages from Notion and falls back to seed data.
+- `src/lib/seed.ts` contains local fallback content.
+- `src/components/` contains the editable UI pieces.
+- `src/app/globals.css` is the main design surface for future redesigns.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy to Vercel and add `NOTION_TOKEN` plus `NOTION_DATABASE_ID` as environment variables.
