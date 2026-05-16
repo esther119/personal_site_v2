@@ -328,7 +328,7 @@ export function MuseumHero() {
             }}
           >
             <PortraitImage
-              caption="now · san francisco · 2026"
+              caption="now · new york · 2026"
               style={{ filter: "sepia(0.25) saturate(1.1) contrast(1.04) brightness(1.02)" }}
             />
             <div style={{ position: "absolute", inset: 0, clipPath: revealClipPath() }}>
@@ -429,7 +429,7 @@ export function MuseumHero() {
             }}
           >
             Software engineer and machine-learning practitioner from Taipei, now in
-            San Francisco. Building tools that make learning a place, not a
+            New York. Building tools that make learning a place, not a
             transaction.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
@@ -559,7 +559,7 @@ export function MuseumHero() {
         <FooterCard
           icon="✦"
           kicker="Now"
-          title="Building marginalia, walking SF hills"
+          title="Building marginalia, walking NYC blocks"
         />
       </div>
     </div>
