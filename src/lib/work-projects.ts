@@ -24,8 +24,63 @@ export type WorkProject = {
 
 export const WORK_PROJECTS: WorkProject[] = [
   {
-    slug: "email",
+    slug: "jungle",
     plate: "I",
+    year: "2025",
+    medium: "engineering · ai · founding role",
+    title: "Founding Full Stack Engineer @ Jungle AI",
+    purpose:
+      "Students cramming dense lecture slides, PDFs, and recorded lectures needed a faster way to turn raw material into active recall — flashcards, quizzes, and feedback that actually stick — instead of re-reading.",
+    work: [
+      "Created an animated tree-growth feature with live feedback for user answers and a dynamic jungle tree collection to visualise learning progress.",
+      "Built a streak tracker with a monthly calendar view, days-studied and questions-answered stats, and gamified daily-engagement visuals.",
+      "Initiated the development of an AI feature that clarifies user mistakes.",
+      "Built a leaderboard with pagination and infinite scrolling, using Intersection Observer + Firebase indexing for an 80% improvement in load time.",
+      "Pioneered K-means clustering for high-quality concept matching in vector embedding space.",
+      "Launched a desktop app on Electron and developed push notifications + sound effects for the Android and iOS mobile apps.",
+    ],
+    results: [
+      "40% boost in user engagement and 3× revenue from the tree-growth + feedback features.",
+      "25% increase in feature usage from the AI mistake-clarification tool.",
+      "30% cut in testing time from the K-means clustering approach.",
+      "1M users served across the desktop and mobile apps.",
+      "Jungle AI featured in Forbes 30 Under 30, 2026 (Education).",
+    ],
+    plates: [
+      { device: "phone", caption: "Streak calendar + tree-growth feedback after a session" },
+    ],
+    meta: [
+      { label: "Year", value: "2025" },
+      { label: "Role", value: "Founding Full Stack Engineer" },
+      { label: "Stack", value: "React Native · Electron · Firebase" },
+      { label: "Press", value: "Forbes 30U30 ↗", link: true },
+    ],
+  },
+  {
+    slug: "manager",
+    plate: "II",
+    year: "2025",
+    medium: "side project · holiday game",
+    title: "Hit Your Manager! 🎄🎮",
+    purpose:
+      "A lot of friends have been stressed at work lately, so I built a lighthearted holiday de-stress game. Since so much of work life is outside our control, the idea was to transform stress into something playful and creative.",
+    work:
+      "Pick an object and throw it at a manager. (Sadly, no — you can't upload your real manager's face… yet 😂)",
+    results:
+      "My managers Julian Alvarez 🚀 and David Glass fully endorsed this. They laughed so hard when playing.",
+    plates: [
+      { device: "raw", caption: "Title screen — pick a manager, pick an object", aspect: 16 / 10 },
+    ],
+    meta: [
+      { label: "Year", value: "2025" },
+      { label: "Type", value: "Side project · Holiday game" },
+      { label: "Stack", value: "Next.js · Canvas · React" },
+      { label: "Play", value: "Live demo ↗", link: true },
+    ],
+  },
+  {
+    slug: "email",
+    plate: "III",
     year: "2024",
     medium: "software · ml · side project",
     title: "AI Auto Email Follow Up",
@@ -61,7 +116,7 @@ export const WORK_PROJECTS: WorkProject[] = [
   },
   {
     slug: "minerva",
-    plate: "II",
+    plate: "IV",
     year: "2023",
     medium: "research · nlp · school project",
     title: "How English Fluency Affects Grading at Minerva",
@@ -87,7 +142,7 @@ export const WORK_PROJECTS: WorkProject[] = [
   },
   {
     slug: "learn",
-    plate: "III",
+    plate: "V",
     year: "2024",
     medium: "engineering · ai · founding role",
     title: "Founding AI Engineer @ Learn.xyz",
@@ -114,7 +169,7 @@ export const WORK_PROJECTS: WorkProject[] = [
   },
   {
     slug: "meta",
-    plate: "IV",
+    plate: "VI",
     year: "2022–23",
     medium: "data science · meta",
     title: "Data Science @ Meta",
