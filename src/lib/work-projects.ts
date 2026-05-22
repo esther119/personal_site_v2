@@ -128,7 +128,8 @@ export const WORK_PROJECTS: WorkProject[] = [
       "Closed a $3M seed.",
     ],
     plates: [
-      { device: "phone", caption: "Course intro screen — generated cover art and title", image: "/work/learn.png" },
+      { device: "phone", caption: "In-lesson view — generated cover art and copy", image: "/work/learn.png" },
+      { device: "phone", caption: "Course intro — generated hero, title, and CTA", image: "/work/learn-2.png" },
     ],
     meta: [
       { label: "Year", value: "2024" },
