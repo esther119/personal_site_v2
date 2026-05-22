@@ -44,7 +44,7 @@ export const WORK_PROJECTS: WorkProject[] = [
       "1M users across desktop + mobile; featured in Forbes 30 Under 30, 2026 (Education).",
     ],
     plates: [
-      { device: "phone", caption: "Streak calendar + tree-growth feedback after a session", video: "/work/jungle.mp4" },
+      { device: "raw", caption: "Streak calendar + tree-growth feedback after a session", aspect: 16 / 10, video: "/work/jungle.mp4" },
     ],
     meta: [
       { label: "Year", value: "2025" },
