@@ -32,19 +32,14 @@ export const WORK_PROJECTS: WorkProject[] = [
     purpose:
       "Students cramming dense lecture slides, PDFs, and recorded lectures needed a faster way to turn raw material into active recall — flashcards, quizzes, and feedback that actually stick — instead of re-reading.",
     work: [
-      "Created an animated tree-growth feature with live feedback for user answers and a dynamic jungle tree collection to visualise learning progress.",
-      "Built a streak tracker with a monthly calendar view, days-studied and questions-answered stats, and gamified daily-engagement visuals.",
-      "Initiated the development of an AI feature that clarifies user mistakes.",
-      "Built a leaderboard with pagination and infinite scrolling, using Intersection Observer + Firebase indexing for an 80% improvement in load time.",
-      "Pioneered K-means clustering for high-quality concept matching in vector embedding space.",
-      "Launched a desktop app on Electron and developed push notifications + sound effects for the Android and iOS mobile apps.",
+      "Gamified progress visuals — animated tree-growth feature with live feedback, plus a monthly streak tracker that visualises days studied and questions answered.",
+      "Smarter content engine — an AI feature that clarifies user mistakes, paired with K-means clustering for high-quality concept matching in vector embedding space.",
+      "Performance & cross-platform reach — leaderboard with Intersection Observer + Firebase indexing (80% faster load) and a desktop Electron app with push notifications on iOS/Android.",
     ],
     results: [
-      "40% boost in user engagement and 3× revenue from the tree-growth + feedback features.",
-      "25% increase in feature usage from the AI mistake-clarification tool.",
-      "30% cut in testing time from the K-means clustering approach.",
-      "1M users served across the desktop and mobile apps.",
-      "Jungle AI featured in Forbes 30 Under 30, 2026 (Education).",
+      "+40% engagement and 3× revenue from the tree-growth + live-feedback features.",
+      "+25% feature usage from AI mistake-clarification and –30% testing time from K-means clustering.",
+      "1M users across desktop + mobile; featured in Forbes 30 Under 30, 2026 (Education).",
     ],
     plates: [
       { device: "phone", caption: "Streak calendar + tree-growth feedback after a session" },
