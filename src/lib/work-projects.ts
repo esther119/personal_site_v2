@@ -147,7 +147,7 @@ export const WORK_PROJECTS: WorkProject[] = [
     results: [
       "Ensured the quality of 60K AI-generated courses.",
       "Cut course-creation time by 75%.",
-      "Helped raise a $3M seed round.",
+      "Closed a $3M seed.",
     ],
     plates: [
       { device: "phone", caption: "Course intro screen — generated cover art and title" },
