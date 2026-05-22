@@ -544,26 +544,6 @@ function ProjectImageCard({ project }: { project: WorkProjectT }) {
         boxSizing: "border-box",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: 18,
-          left: 18,
-          width: 38,
-          height: 38,
-          borderRadius: 10,
-          background: "#fdfbf3",
-          border: `1px solid ${s.rule2}`,
-          display: "grid",
-          placeItems: "center",
-          color: s.soft,
-          fontSize: 15,
-          cursor: "pointer",
-        }}
-      >
-        ◉
-      </div>
-
       {plate ? (
         <DeviceShot plate={plate} label={`${project.plate}.1`} />
       ) : project.confidential ? (
