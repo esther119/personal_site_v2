@@ -425,7 +425,6 @@ export function MuseumHero({
             >
               taste
             </span>
-            .
           </h1>
           <p
             style={{
