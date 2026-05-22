@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Esther Yang — Work · 3 directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe9dd;
+    --ink: #1c1814;
+    --warm: #d9b04c;
+    --muted: #6b6256;
+    --hairline: rgba(28, 24, 20, 0.12);
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --sans: "Inter Tight", -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+
+  /* Variant-chooser strip */
+  .chooser {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(239,233,221,0.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hairline);
+    display: flex; gap: 24px; align-items: center;
+    padding: 14px 44px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .chooser .label { color: var(--muted); }
+  .chooser a { color: var(--ink); text-decoration: none; padding: 6px 10px; border: 1px solid var(--hairline); background: rgba(255,255,255,0.4); }
+  .chooser a:hover { background: var(--ink); color: var(--paper); }
+
+  /* Top nav (shared) */
+  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 28px 44px; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand .name { font-family: var(--serif); font-weight: 500; letter-spacing: 0.12em; font-size: 14px; line-height: 1.15; }
+  .brand .sub { color: var(--muted); font-size: 11px; letter-spacing: 0.18em; }
+  .brand .dot { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #c9c0ad; background: transparent; display: grid; place-items: center; cursor: pointer; color: var(--ink); font-size: 12px; }
+  .menu { display: flex; gap: 36px; justify-content: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .menu a { color: var(--ink); text-decoration: none; position: relative; }
+  .menu a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 1px; background: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; }
+  .hamburger { width: 38px; height: 38px; border-radius: 50%; border: 1px solid #c9c0ad; background: rgba(255,255,255,0.4); display: grid; place-items: center; cursor: pointer; }
+  .hamburger span { display: block; width: 14px; height: 1px; background: var(--ink); margin: 1.5px 0; }
+
+  /* Variant frame */
+  .variant {
+    border-top: 1px dashed rgba(28,24,20,0.18);
+    padding: 30px 44px 80px;
+  }
+  .variant.first { border-top: none; }
+  .variant-label {
+    display: flex; align-items: baseline; gap: 16px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 10px;
+  }
+  .variant-label .badge {
+    font-family: var(--serif); font-style: italic; font-size: 18px;
+    letter-spacing: 0; text-transform: none; color: var(--ink);
+  }
+  .variant-label .hint { color: var(--muted); }
+  .kicker { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); }
+  .kicker .rule { width: 38px; height: 1px; background: var(--ink); }
+
+  /* ───── A · Editorial Index ───── */
+  .A-masthead { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; padding: 30px 0 22px; border-bottom: 1px solid var(--hairline); }
+  .A-masthead h1 { font-family: var(--serif); font-weight: 400; font-size: 110px; line-height: 0.95; letter-spacing: -0.02em; margin: 14px 0 0; }
+  .A-masthead h1 em { font-style: italic; color: var(--warm); }
+  .A-masthead .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); text-align: right; line-height: 1.7; }
+  .A-masthead .meta strong { color: var(--ink); font-weight: 500; }
+  .A-lede { max-width: 720px; font-family: var(--serif); font-size: 20px; line-height: 1.45; color: #3a342b; margin: 24px 0 0; }
+  .A-lede .pull { font-style: italic; color: var(--ink); }
+  .A-filters { display: flex; align-items: center; gap: 18px; padding: 28px 0 14px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--hairline); }
+  .A-filters .opts { display: flex; gap: 10px; flex-wrap: wrap; }
+  .A-filters .opt { padding: 6px 10px; border: 1px solid var(--hairline); background: rgba(255,255,255,0.4); cursor: pointer; color: var(--ink); }
+  .A-filters .opt.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .A-filters .right { margin-left: auto; }
+  .A-row { display: grid; grid-template-columns: 60px 1.2fr 2.4fr 1fr 60px; gap: 24px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--hairline); cursor: pointer; }
+  .A-row:hover { background: rgba(255,255,255,0.45); }
+  .A-row .num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--muted); padding-top: 8px; }
+  .A-row .when { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); padding-top: 8px; line-height: 1.7; }
+  .A-row .when .org { color: var(--ink); }
+  .A-row .title { font-family: var(--serif); font-size: 30px; line-height: 1.05; font-weight: 500; letter-spacing: -0.01em; }
+  .A-row .title .em { font-style: italic; color: var(--warm); }
+  .A-row .blurb { font-size: 14px; line-height: 1.55; color: #3a342b; margin-top: 6px; max-width: 540px; }
+  .A-row .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .A-row .tag { padding: 4px 8px; border: 1px solid var(--hairline); border-radius: 999px; }
+  .A-row .stat { font-family: var(--mono); font-size: 11px; color: var(--muted); padding-top: 8px; line-height: 1.7; letter-spacing: 0.1em; }
+  .A-row .stat strong { display: block; color: var(--ink); font-family: var(--serif); font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 2px; }
+  .A-row .arrow { align-self: center; justify-self: end; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; font-size: 13px; }
+  .A-row:hover .arrow { background: var(--ink); color: var(--paper); }
+
+  /* ───── B · Catalogue (grid of cards) ───── */
+  .B-head { padding: 30px 0 22px; border-bottom: 1px solid var(--hairline); display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; }
+  .B-head h1 { font-family: var(--serif); font-weight: 400; font-size: 88px; line-height: 0.96; letter-spacing: -0.02em; margin: 12px 0 0; }
+  .B-head h1 em { font-style: italic; color: var(--warm); }
+  .B-head .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); text-align: right; line-height: 1.7; }
+  .B-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+  .card {
+    position: relative; overflow: hidden;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--hairline);
+    aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column;
+    cursor: pointer;
+  }
+  .card .thumb {
+    flex: 1; position: relative;
+    background: #d6cdb8;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(28,24,20,0.06) 0 2px, transparent 2px 14px),
+      radial-gradient(at 30% 25%, var(--warm) 0%, transparent 55%),
+      linear-gradient(135deg, #c9bfa4 0%, #efe9dd 100%);
+  }
+  .card.dark .thumb { background-image: radial-gradient(at 70% 30%, rgba(217,176,76,0.4), transparent 55%), linear-gradient(135deg, #1c1814 0%, #3b342a 100%); }
+  .card.warm .thumb { background-image: radial-gradient(at 70% 20%, rgba(255,255,255,0.45), transparent 60%), linear-gradient(135deg, var(--warm) 0%, #c89432 100%); }
+  .card .frame-no {
+    position: absolute; top: 12px; left: 14px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink);
+    background: rgba(239,233,221,0.85); padding: 3px 7px;
+  }
+  .card.dark .frame-no { color: var(--paper); background: rgba(0,0,0,0.45); }
+  .card .frame-tag {
+    position: absolute; bottom: 12px; right: 14px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--paper); background: rgba(0,0,0,0.45); padding: 4px 8px;
+    backdrop-filter: blur(6px);
+  }
+  .card .caption { padding: 16px 18px 18px; border-top: 1px solid var(--hairline); background: rgba(255,255,255,0.7); }
+  .card .caption .ck { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .card .caption .ct { font-family: var(--serif); font-weight: 500; font-size: 22px; line-height: 1.1; letter-spacing: -0.01em; }
+  .card .caption .ct em { font-style: italic; color: var(--warm); }
+  .card .caption .cb { margin-top: 8px; font-size: 13px; line-height: 1.5; color: #3a342b; }
+  .card.feature { grid-column: span 2; aspect-ratio: 8 / 5; }
+
+  /* ───── C · Career Spine (vertical timeline) ───── */
+  .C-head { padding: 30px 0 22px; border-bottom: 1px solid var(--hairline); }
+  .C-head h1 { font-family: var(--serif); font-weight: 400; font-size: 96px; line-height: 0.96; letter-spacing: -0.02em; margin: 12px 0 8px; max-width: 900px; }
+  .C-head h1 em { font-style: italic; color: var(--warm); }
+  .C-head .sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .C-spine { position: relative; padding: 40px 0 0 0; }
+  .C-spine::before {
+    content: ""; position: absolute; left: 200px; top: 0; bottom: 0; width: 1px; background: var(--ink); opacity: 0.5;
+  }
+  .C-entry { display: grid; grid-template-columns: 170px 30px 1fr 220px; gap: 30px; align-items: start; padding: 28px 0; position: relative; }
+  .C-entry .year { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); padding-top: 10px; line-height: 1.7; text-align: right; }
+  .C-entry .year .now { display: inline-block; padding: 2px 8px; background: var(--ink); color: var(--paper); margin-left: 6px; }
+  .C-entry .marker { display: grid; place-items: center; padding-top: 8px; }
+  .C-entry .marker .pip { width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--ink); }
+  .C-entry.now .marker .pip { background: var(--warm); border-color: var(--warm); box-shadow: 0 0 0 4px rgba(217,176,76,0.25); }
+  .C-entry .body .role { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .C-entry .body h3 { font-family: var(--serif); font-weight: 500; font-size: 30px; line-height: 1.05; letter-spacing: -0.01em; margin: 0; }
+  .C-entry .body h3 em { font-style: italic; color: var(--warm); }
+  .C-entry .body p { margin: 10px 0 0; font-size: 14px; line-height: 1.55; color: #3a342b; max-width: 560px; }
+  .C-entry .body ul { margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-family: var(--serif); font-size: 16px; color: #2a251e; }
+  .C-entry .body ul li::before { content: "— "; color: var(--muted); }
+  .C-entry .aside { padding-top: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); line-height: 1.7; }
+  .C-entry .aside .k { color: var(--ink); }
+
+  /* Shared footer */
+  .footer-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 40px; }
+  .fcard { background: rgba(255,255,255,0.55); border: 1px solid rgba(28,24,20,0.08); padding: 16px 22px; display: grid; grid-template-columns: 34px 1fr 24px; gap: 14px; align-items: center; cursor: pointer; }
+  .fcard .ic { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; font-size: 14px; }
+  .fcard .fk { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .fcard .ft { font-family: var(--serif); font-size: 19px; line-height: 1.1; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="chooser">
+  <span class="label">Jump to</span>
+  <a href="#A">A · Editorial Index</a>
+  <a href="#B">B · Catalogue Grid</a>
+  <a href="#C">C · Career Spine</a>
+</div>
+
+<div class="nav">
+  <div class="brand">
+    <div class="name">ESTHER<div class="sub">YANG / 2026</div></div>
+    <button class="dot">♪</button>
+  </div>
+  <nav class="menu">
+    <a>About</a>
+    <a class="active">Work</a>
+    <a>Notes</a>
+    <a>Now</a>
+    <a>Contact</a>
+  </nav>
+  <div class="nav-right">
+    <button class="hamburger"><div><span></span><span></span></div></button>
+  </div>
+</div>
+
+<!-- ───────────────────── A · EDITORIAL INDEX ───────────────────── -->
+<section id="A" class="variant first">
+  <div class="variant-label">
+    <span>Direction A</span>
+    <span class="badge">Editorial Index</span>
+    <span class="hint">— a printed table of contents · text-forward · scannable</span>
+  </div>
+
+  <div class="kicker"><span class="rule"></span><span>Section 02 · A record of work</span></div>
+  <div class="A-masthead">
+    <h1>Things I've<br/><em>made</em> &amp; helped make.</h1>
+    <div class="meta">
+      <div><strong>2018 – Now</strong></div>
+      <div>14 projects · 6 roles</div>
+      <div>Eng · Research · Design</div>
+    </div>
+  </div>
+  <p class="A-lede"><span class="pull">"Let learning be an experience, not a transaction."</span> Mostly software, sometimes papers, sometimes a small physical thing.</p>
+
+  <div class="A-filters">
+    <span>Filter</span>
+    <div class="opts">
+      <span class="opt on">All</span>
+      <span class="opt">Engineering</span>
+      <span class="opt">Research</span>
+      <span class="opt">Teaching</span>
+      <span class="opt">Side</span>
+    </div>
+    <span class="right">Sort · Recent first ↓</span>
+  </div>
+
+  <article class="A-row">
+    <div class="num">01</div>
+    <div class="when"><div>2024 — Now</div><div class="org">Meta · NYC</div></div>
+    <div>
+      <div class="title">Marginalia — <span class="em">a place to read with others</span></div>
+      <div class="blurb">A shared PDF that turns into a hallway you walk through together. Footnotes are rooms; the cursor leaves a trail.</div>
+      <div class="tags"><span class="tag">React</span><span class="tag">WebSockets</span><span class="tag">CRDT</span></div>
+    </div>
+    <div class="stat"><strong>3k+</strong>classrooms</div>
+    <div class="arrow">→</div>
+  </article>
+
+  <article class="A-row">
+    <div class="num">02</div>
+    <div class="when"><div>2022 — 2024</div><div class="org">Google Research</div></div>
+    <div>
+      <div class="title">On <span class="em">curiosity loops</span> in adolescent learners</div>
+      <div class="blurb">Two-year study with the Brain team on how 11–14 year-olds form questions when given an open-ended prompt.</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">JAX</span><span class="tag">Mixed-methods</span></div>
+    </div>
+    <div class="stat"><strong>2</strong>papers · NeurIPS, LAK</div>
+    <div class="arrow">→</div>
+  </article>
+
+  <article class="A-row">
+    <div class="num">03</div>
+    <div class="when"><div>2021 — 2022</div><div class="org">Meta · Reality Labs</div></div>
+    <div>
+      <div class="title">Spatial captions for <span class="em">noisy rooms</span></div>
+      <div class="blurb">On-device transcription anchored in 3-D — captions that float by the speaker, not the screen.</div>
+      <div class="tags"><span class="tag">C++</span><span class="tag">CoreML</span><span class="tag">Audio DSP</span></div>
+    </div>
+    <div class="stat"><strong>240ms</strong>p95 latency</div>
+    <div class="arrow">→</div>
+  </article>
+
+  <article class="A-row">
+    <div class="num">04</div>
+    <div class="when"><div>2020 — 2021</div><div class="org">Minerva · Teaching</div></div>
+    <div>
+      <div class="title">A 14-week course on <span class="em">how to ask</span></div>
+      <div class="blurb">Designed and ran a first-year seminar: half philosophy of inquiry, half practical interview skills.</div>
+      <div class="tags"><span class="tag">Curriculum</span><span class="tag">Workshops</span></div>
+    </div>
+    <div class="stat"><strong>48</strong>students · 4.8★</div>
+    <div class="arrow">→</div>
+  </article>
+
+</section>
+
+<!-- ───────────────────── B · CATALOGUE GRID ───────────────────── -->
+<section id="B" class="variant">
+  <div class="variant-label">
+    <span>Direction B</span>
+    <span class="badge">Catalogue Grid</span>
+    <span class="hint">— museum contact-sheet · visual-forward · feels curated</span>
+  </div>
+
+  <div class="kicker"><span class="rule"></span><span>Section 02 · Plates I – XIV</span></div>
+  <div class="B-head">
+    <h1>A small catalogue of<br/><em>things</em> made &amp; thought.</h1>
+    <div class="meta">
+      <div><strong>14 plates</strong></div>
+      <div>Click any to enter</div>
+      <div>Last updated · Apr 2026</div>
+    </div>
+  </div>
+
+  <div class="B-grid">
+    <article class="card feature dark">
+      <div class="thumb">
+        <span class="frame-no">Plate I</span>
+        <span class="frame-tag">Featured · Eng</span>
+      </div>
+      <div class="caption">
+        <div class="ck">2024 — Now · Meta</div>
+        <div class="ct">Marginalia — <em>a place to read together</em></div>
+        <div class="cb">A shared PDF that turns into a hallway. 3k+ classrooms.</div>
+      </div>
+    </article>
+
+    <article class="card warm">
+      <div class="thumb"><span class="frame-no">Plate II</span><span class="frame-tag">Research</span></div>
+      <div class="caption">
+        <div class="ck">2022 — 2024 · Google</div>
+        <div class="ct">Curiosity loops in <em>adolescent learners</em></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb"><span class="frame-no">Plate III</span><span class="frame-tag">Eng</span></div>
+      <div class="caption">
+        <div class="ck">2021 — 2022 · Reality Labs</div>
+        <div class="ct">Spatial captions for <em>noisy rooms</em></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb"><span class="frame-no">Plate IV</span><span class="frame-tag">Teaching</span></div>
+      <div class="caption">
+        <div class="ck">2020 — 2021 · Minerva</div>
+        <div class="ct">A 14-week course on <em>how to ask</em></div>
+      </div>
+    </article>
+
+    <article class="card dark">
+      <div class="thumb"><span class="frame-no">Plate V</span><span class="frame-tag">Thesis</span></div>
+      <div class="caption">
+        <div class="ck">2019 — 2020 · NTU</div>
+        <div class="ct">Slow web — <em>a browser that waits</em></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb"><span class="frame-no">Plate VI</span><span class="frame-tag">Object</span></div>
+      <div class="caption">
+        <div class="ck">2024 · Side</div>
+        <div class="ct">A paper almanac of <em>every question</em></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────────────── C · CAREER SPINE ───────────────────── -->
+<section id="C" class="variant">
+  <div class="variant-label">
+    <span>Direction C</span>
+    <span class="badge">Career Spine</span>
+    <span class="hint">— a vertical timeline · narrative-forward · feels like a CV that breathes</span>
+  </div>
+
+  <div class="kicker"><span class="rule"></span><span>Section 02 · A spine of years</span></div>
+  <div class="C-head">
+    <h1>Where I've been, and<br/>what I was trying to <em>understand</em>.</h1>
+    <div class="sub">Read top to bottom · 2018 to today</div>
+  </div>
+
+  <div class="C-spine">
+
+    <div class="C-entry now">
+      <div class="year">2024 — <span class="now">Now</span></div>
+      <div class="marker"><div class="pip"></div></div>
+      <div class="body">
+        <div class="role">Software Engineer · Meta, NYC</div>
+        <h3>Building <em>Marginalia</em>, a place to read with others.</h3>
+        <p>A small reading tool that turns a shared PDF into a hallway you walk through together. Used by ~3k classrooms.</p>
+        <ul>
+          <li>Founded the project; led eng from 0 → 1.</li>
+          <li>React, WebSockets, CRDT, Postgres.</li>
+          <li>3.2× retention vs. control after 8 weeks.</li>
+        </ul>
+      </div>
+      <div class="aside">
+        <div class="k">Stack</div>
+        <div>React · CRDT · Postgres</div>
+        <div class="k" style="margin-top:8px;">Outcome</div>
+        <div>3k+ classrooms</div>
+      </div>
+    </div>
+
+    <div class="C-entry">
+      <div class="year">2022 — 2024</div>
+      <div class="marker"><div class="pip"></div></div>
+      <div class="body">
+        <div class="role">Visiting Researcher · Google Research</div>
+        <h3>How do 11–14 year-olds <em>form questions?</em></h3>
+        <p>Two-year mixed-methods study with the Brain team. Co-authored two papers and shipped a classroom probe.</p>
+        <ul>
+          <li>Designed the protocol with 4 partner schools.</li>
+          <li>NeurIPS 2023 (poster), LAK 2024 (full paper).</li>
+        </ul>
+      </div>
+      <div class="aside">
+        <div class="k">Methods</div>
+        <div>JAX · interview · LDA</div>
+        <div class="k" style="margin-top:8px;">Output</div>
+        <div>2 papers</div>
+      </div>
+    </div>
+
+    <div class="C-entry">
+      <div class="year">2021 — 2022</div>
+      <div class="marker"><div class="pip"></div></div>
+      <div class="body">
+        <div class="role">Software Engineer · Meta Reality Labs</div>
+        <h3>Captions that <em>follow the speaker</em>, not the screen.</h3>
+        <p>On-device transcription anchored in 3-D for noisy rooms. Cut latency from 1.2s → 240ms p95 on Quest.</p>
+      </div>
+      <div class="aside">
+        <div class="k">Stack</div>
+        <div>C++ · CoreML · Audio</div>
+        <div class="k" style="margin-top:8px;">Impact</div>
+        <div>5× faster</div>
+      </div>
+    </div>
+
+    <div class="C-entry">
+      <div class="year">2020 — 2021</div>
+      <div class="marker"><div class="pip"></div></div>
+      <div class="body">
+        <div class="role">Adjunct Instructor · Minerva University</div>
+        <h3>Teaching <em>how to ask</em>, for 14 weeks.</h3>
+        <p>Designed and ran a first-year seminar — half philosophy of inquiry, half practical interview skills. 48 students, 4.8★.</p>
+      </div>
+      <div class="aside">
+        <div class="k">Format</div>
+        <div>14 weeks · 4 cohorts</div>
+        <div class="k" style="margin-top:8px;">Materials</div>
+        <div>Open source</div>
+      </div>
+    </div>
+
+    <div class="C-entry">
+      <div class="year">2018 — 2020</div>
+      <div class="marker"><div class="pip"></div></div>
+      <div class="body">
+        <div class="role">BSc CSIE · NTU</div>
+        <h3>A browser that <em>waits</em>.</h3>
+        <p>Honors thesis. A Chromium fork that adds a small delay on high-engagement domains and uses the gap to surface a question.</p>
+      </div>
+      <div class="aside">
+        <div class="k">Award</div>
+        <div>Honors thesis</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-cards">
+    <div class="fcard"><div class="ic">◐</div><div><div class="fk">About</div><div class="ft">A confused human, from Taipei</div></div><div>→</div></div>
+    <div class="fcard"><div class="ic">✎</div><div><div class="fk">Notes</div><div class="ft">Loose threads, kept in public</div></div><div>→</div></div>
+    <div class="fcard"><div class="ic">✦</div><div><div class="fk">Now</div><div class="ft">Building marginalia, walking NYC blocks</div></div><div>→</div></div>
+  </div>
+</section>
+
+</body>
+</html>

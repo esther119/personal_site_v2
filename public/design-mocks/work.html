@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Esther Yang — Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe9dd;
+    --ink: #1c1814;
+    --warm: #d9b04c;
+    --muted: #6b6256;
+    --hairline: rgba(28, 24, 20, 0.12);
+    --serif: "Cormorant Garamond", "Newsreader", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --sans: "Inter Tight", -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Top nav */
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 28px 44px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .brand .name {
+    font-family: var(--serif);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    font-size: 14px;
+    line-height: 1.15;
+  }
+  .brand .sub {
+    color: var(--muted); font-size: 11px; letter-spacing: 0.18em;
+  }
+  .brand .dot {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 1px solid #c9c0ad; background: transparent;
+    display: grid; place-items: center; cursor: pointer;
+    color: var(--ink); font-size: 12px;
+  }
+  .menu {
+    display: flex; gap: 36px; justify-content: center;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .menu a { color: var(--ink); text-decoration: none; position: relative; }
+  .menu a.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -8px;
+    height: 1px; background: var(--ink);
+  }
+  .nav-right { display: flex; justify-content: flex-end; }
+  .hamburger {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid #c9c0ad; background: rgba(255,255,255,0.4);
+    display: grid; place-items: center; cursor: pointer;
+  }
+  .hamburger span { display: block; width: 14px; height: 1px; background: var(--ink); margin: 1.5px 0; }
+
+  /* Page frame */
+  .stage { padding: 24px 44px 60px; }
+
+  /* Section header */
+  .kicker {
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .kicker .rule { width: 38px; height: 1px; background: var(--ink); }
+
+  .masthead {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+    padding: 40px 0 28px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 124px;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 18px 0 0;
+  }
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--warm);
+  }
+  .masthead .meta {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); text-align: right; line-height: 1.7;
+  }
+  .masthead .meta strong { color: var(--ink); font-weight: 500; }
+
+  .lede {
+    max-width: 720px;
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.45;
+    color: #3a342b;
+    margin: 28px 0 0;
+  }
+  .lede .pull {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* Filter rail */
+  .filters {
+    display: flex; align-items: center; gap: 20px;
+    padding: 36px 0 18px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .filters .label { color: var(--muted); }
+  .filters .opts { display: flex; gap: 14px; flex-wrap: wrap; }
+  .filters .opt {
+    padding: 6px 10px; border: 1px solid var(--hairline);
+    background: rgba(255,255,255,0.4); cursor: pointer; color: var(--ink);
+  }
+  .filters .opt.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .filters .right { margin-left: auto; }
+
+  /* Work list — editorial index */
+  .index { border-top: 1px solid var(--hairline); }
+  .row {
+    display: grid;
+    grid-template-columns: 60px 1.4fr 2.6fr 1fr 80px;
+    gap: 28px;
+    align-items: start;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--hairline);
+    cursor: pointer;
+    transition: background 200ms ease;
+  }
+  .row:hover { background: rgba(255,255,255,0.45); }
+  .row .num {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; color: var(--muted);
+    padding-top: 8px;
+  }
+  .row .when {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); padding-top: 8px;
+    line-height: 1.7;
+  }
+  .row .when .org { color: var(--ink); }
+  .row .title {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .row .title .em { font-style: italic; color: var(--warm); }
+  .row .blurb {
+    font-size: 14px; line-height: 1.55; color: #3a342b;
+    margin-top: 8px; max-width: 540px;
+  }
+  .row .tags {
+    margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .row .tag {
+    padding: 4px 8px; border: 1px solid var(--hairline);
+    border-radius: 999px;
+  }
+  .row .stat {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); padding-top: 8px;
+    line-height: 1.7; letter-spacing: 0.1em;
+  }
+  .row .stat strong {
+    display: block; color: var(--ink); font-family: var(--serif);
+    font-size: 28px; font-weight: 500; letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+  .row .arrow {
+    align-self: center; justify-self: end;
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--ink); display: grid; place-items: center;
+    font-size: 14px; color: var(--ink);
+    transition: background 200ms ease, color 200ms ease;
+  }
+  .row:hover .arrow { background: var(--ink); color: var(--paper); }
+
+  /* Featured strip */
+  .featured {
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 14px; margin: 56px 0;
+  }
+  .feat {
+    position: relative; overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: #1c1814; color: var(--paper);
+    aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 22px;
+  }
+  .feat.cream { background: rgba(255,255,255,0.6); color: var(--ink); }
+  .feat.warm { background: var(--warm); color: var(--ink); }
+  .feat .feat-kicker {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .feat h3 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 30px; line-height: 1.05; margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .feat h3 em { font-style: italic; }
+  .feat .feat-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .feat .arrow-sm {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 1px solid currentColor; display: grid; place-items: center;
+    font-size: 11px;
+  }
+  .feat.large h3 { font-size: 44px; }
+
+  /* Footer */
+  .footer-cards {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;
+    margin-top: 40px;
+  }
+  .fcard {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(28,24,20,0.08);
+    backdrop-filter: blur(10px);
+    padding: 16px 22px;
+    display: grid; grid-template-columns: 34px 1fr 24px;
+    gap: 14px; align-items: center; cursor: pointer;
+  }
+  .fcard .ic {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--ink); display: grid; place-items: center;
+    font-size: 14px;
+  }
+  .fcard .fk {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 4px;
+  }
+  .fcard .ft {
+    font-family: var(--serif); font-size: 19px; line-height: 1.1; font-weight: 500;
+  }
+  .colophon {
+    margin-top: 50px; padding-top: 22px;
+    border-top: 1px solid var(--hairline);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="brand">
+    <div class="name">
+      ESTHER
+      <div class="sub">YANG / 2026</div>
+    </div>
+    <button class="dot">♪</button>
+  </div>
+  <nav class="menu">
+    <a>About</a>
+    <a class="active">Work</a>
+    <a>Notes</a>
+    <a>Now</a>
+    <a>Contact</a>
+  </nav>
+  <div class="nav-right">
+    <button class="hamburger"><div><span></span><span></span></div></button>
+  </div>
+</div>
+
+<div class="stage">
+
+  <!-- Masthead -->
+  <div class="kicker">
+    <span class="rule"></span>
+    <span>Section 02 · A record of work</span>
+  </div>
+  <div class="masthead">
+    <div>
+      <h1>Things I've<br/><em>made</em> &amp; helped make.</h1>
+    </div>
+    <div class="meta">
+      <div><strong>2018 – Now</strong></div>
+      <div>14 projects · 6 roles</div>
+      <div>Eng &middot; Research &middot; Design</div>
+    </div>
+  </div>
+  <p class="lede">
+    <span class="pull">"Let learning be an experience, not a transaction."</span>
+    Mostly software, sometimes papers, sometimes a small physical thing.
+    Always in service of that one sentence — built at Meta, researched
+    at Google, taught at Minerva and NTU.
+  </p>
+
+  <!-- Filters -->
+  <div class="filters">
+    <span class="label">Filter</span>
+    <div class="opts">
+      <span class="opt on">All</span>
+      <span class="opt">Engineering</span>
+      <span class="opt">Research</span>
+      <span class="opt">Teaching</span>
+      <span class="opt">Side</span>
+    </div>
+    <span class="right">Sort &middot; Recent first ↓</span>
+  </div>
+
+  <!-- Index -->
+  <section class="index">
+
+    <article class="row">
+      <div class="num">01</div>
+      <div class="when">
+        <div>2024 — Now</div>
+        <div class="org">Meta · NYC</div>
+      </div>
+      <div>
+        <div class="title">Marginalia — <span class="em">a place to read with others</span></div>
+        <div class="blurb">
+          A small reading tool that turns a shared PDF into a hallway you walk
+          through together. Footnotes become rooms; the cursor leaves a trail.
+          Used by ~3k classrooms.
+        </div>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">WebSockets</span>
+          <span class="tag">CRDT</span>
+          <span class="tag">Postgres</span>
+        </div>
+      </div>
+      <div class="stat"><strong>3k+</strong>classrooms</div>
+      <div class="arrow">→</div>
+    </article>
+
+    <article class="row">
+      <div class="num">02</div>
+      <div class="when">
+        <div>2022 — 2024</div>
+        <div class="org">Google Research</div>
+      </div>
+      <div>
+        <div class="title">On <span class="em">curiosity loops</span> in adolescent learners</div>
+        <div class="blurb">
+          Two-year study with the Brain team on how 11–14 year-olds form
+          questions when given an open-ended prompt. Co-authored two papers,
+          shipped a classroom probe.
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">JAX</span>
+          <span class="tag">Mixed-methods</span>
+        </div>
+      </div>
+      <div class="stat"><strong>2</strong>papers · NeurIPS, LAK</div>
+      <div class="arrow">→</div>
+    </article>
+
+    <article class="row">
+      <div class="num">03</div>
+      <div class="when">
+        <div>2021 — 2022</div>
+        <div class="org">Meta · Reality Labs</div>
+      </div>
+      <div>
+        <div class="title">Spatial captions for <span class="em">noisy rooms</span></div>
+        <div class="blurb">
+          On-device transcription anchored in 3-D — captions that float by
+          the speaker, not the screen. Latency from 1.2s → 240ms on Quest.
+        </div>
+        <div class="tags">
+          <span class="tag">C++</span>
+          <span class="tag">CoreML</span>
+          <span class="tag">Audio DSP</span>
+        </div>
+      </div>
+      <div class="stat"><strong>240ms</strong>p95 latency</div>
+      <div class="arrow">→</div>
+    </article>
+
+    <article class="row">
+      <div class="num">04</div>
+      <div class="when">
+        <div>2020 — 2021</div>
+        <div class="org">Minerva · Teaching</div>
+      </div>
+      <div>
+        <div class="title">A 14-week course on <span class="em">how to ask</span></div>
+        <div class="blurb">
+          Designed and ran a seminar for first-years: half philosophy of
+          inquiry, half practical interview skills. Course materials open-sourced.
+        </div>
+        <div class="tags">
+          <span class="tag">Curriculum</span>
+          <span class="tag">Workshops</span>
+          <span class="tag">Open materials</span>
+        </div>
+      </div>
+      <div class="stat"><strong>48</strong>students · 4.8★</div>
+      <div class="arrow">→</div>
+    </article>
+
+    <article class="row">
+      <div class="num">05</div>
+      <div class="when">
+        <div>2019 — 2020</div>
+        <div class="org">NTU · Thesis</div>
+      </div>
+      <div>
+        <div class="title">Slow web — <span class="em">a browser that waits</span></div>
+        <div class="blurb">
+          Undergrad thesis. A Chromium fork that imposes a small delay on
+          high-engagement domains and uses the gap to surface a question
+          from the page you're about to leave.
+        </div>
+        <div class="tags">
+          <span class="tag">Chromium</span>
+          <span class="tag">UX research</span>
+          <span class="tag">Thesis</span>
+        </div>
+      </div>
+      <div class="stat"><strong>Honors</strong>thesis, CSIE</div>
+      <div class="arrow">→</div>
+    </article>
+
+  </section>
+
+  <!-- Featured strip -->
+  <div class="kicker" style="margin-top: 56px;">
+    <span class="rule"></span>
+    <span>Also worth a look</span>
+  </div>
+  <section class="featured">
+    <article class="feat large">
+      <div class="feat-kicker">Essay · 2025</div>
+      <h3>The shape of a <em>good question</em>, and why software keeps flattening it.</h3>
+      <div class="feat-foot"><span>Read · 14 min</span><span class="arrow-sm">↗</span></div>
+    </article>
+    <article class="feat cream">
+      <div class="feat-kicker">Talk · NYC AI ·  2025</div>
+      <h3>Learning is a <em>place</em>, not a transaction.</h3>
+      <div class="feat-foot"><span>Watch · 22 min</span><span class="arrow-sm">↗</span></div>
+    </article>
+    <article class="feat warm">
+      <div class="feat-kicker">Object · 2024</div>
+      <h3>A paper almanac of <em>every question</em> I asked this year.</h3>
+      <div class="feat-foot"><span>See process</span><span class="arrow-sm">↗</span></div>
+    </article>
+  </section>
+
+  <!-- Footer cards (consistent with home) -->
+  <div class="footer-cards">
+    <div class="fcard">
+      <div class="ic">◐</div>
+      <div><div class="fk">About</div><div class="ft">A confused human, from Taipei</div></div>
+      <div>→</div>
+    </div>
+    <div class="fcard">
+      <div class="ic">✎</div>
+      <div><div class="fk">Notes</div><div class="ft">Loose threads, kept in public</div></div>
+      <div>→</div>
+    </div>
+    <div class="fcard">
+      <div class="ic">✦</div>
+      <div><div class="fk">Now</div><div class="ft">Building marginalia, walking NYC blocks</div></div>
+      <div>→</div>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span>Index · 05 entries</span>
+    <span>Esther Yang · 2026</span>
+    <span>Set in Cormorant Garamond &middot; IBM Plex Mono</span>
+  </div>
+
+</div>
+
+</body>
+</html>
