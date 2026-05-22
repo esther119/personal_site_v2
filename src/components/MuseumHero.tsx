@@ -407,8 +407,9 @@ export function MuseumHero({
               margin: 0,
             }}
           >
-            Still asking
+            Engineer
             <br />
+            with{" "}
             <span
               style={{
                 fontStyle: "italic",
@@ -423,7 +424,7 @@ export function MuseumHero({
                 transition: "text-shadow 0.1s",
               }}
             >
-              why
+              taste
             </span>
             .
           </h1>
