@@ -180,6 +180,38 @@ export const WORK_PROJECTS: WorkProject[] = [
       { label: "Status", value: "Confidential" },
     ],
   },
+  {
+    slug: "jubo",
+    plate: "VII",
+    year: "2021",
+    medium: "data engineering · health-tech",
+    title: "Data Engineering / Science @ Jubo",
+    purpose:
+      "Designers, the CEO, and the customer-success team lacked insight into how Jubo's product modules were actually performing in the field — and which design decisions were moving the needle.",
+    work: [
+      "Defined product-analytics metrics for monitoring client performance across 84 modules.",
+      "Built an Airflow automation pipeline that ingests usage data and refreshes dashboards on a schedule.",
+      "Designed facility-health visualisations the CEO and customer-success team use to talk to clients.",
+    ],
+    results: [
+      "Surfaced facility-health metrics across 84 modules on 1M+ data points.",
+      "Cut report-prep time by 90%, freeing the team to focus on retention.",
+      "Quantified design effectiveness and helped reduce customer churn.",
+    ],
+    plates: [
+      {
+        device: "raw",
+        caption: "Facility-health dashboard — module scores across one client over six months",
+        aspect: 16 / 10,
+        image: "/work/jubo.png",
+      },
+    ],
+    meta: [
+      { label: "Year", value: "2021" },
+      { label: "Role", value: "Data Engineer / Scientist" },
+      { label: "Outcome", value: "–90% report time" },
+    ],
+  },
 ];
 
 export function getProject(slug: string): WorkProject | undefined {

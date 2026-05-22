@@ -68,6 +68,7 @@ export function WorkStrip() {
     { key: "minerva", title: "English Fluency at Minerva", year: "2023", content: <MinervaTile /> },
     { key: "learn", title: "Founding AI Engineer · Learn.xyz", year: "2024", content: <LearnTile /> },
     { key: "meta", title: "Data Science · Meta", year: "2022", content: <MetaTile /> },
+    { key: "jubo", title: "Data Engineering · Jubo", year: "2021", content: <JuboTile /> },
   ];
 
   return (
@@ -105,7 +106,7 @@ export function WorkStrip() {
           }}
         >
           <span style={{ width: 38, height: 1, background: s.ink }} />
-          <span>Works · 06 · 2022 — 2025</span>
+          <span>Works · 07 · 2021 — 2025</span>
         </span>
         <span
           style={{
@@ -778,6 +779,31 @@ function ManagerTile() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/work/manager.png"
+        alt=""
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
+    </div>
+  );
+}
+
+// ─── Tile VII — Jubo facility-health dashboard ────────────────────────────
+function JuboTile() {
+  return (
+    <div
+      style={{
+        width: 460,
+        height: 320,
+        borderRadius: 10,
+        background: "#fbf8f1",
+        border: `1px solid ${s.rule2}`,
+        overflow: "hidden",
+        boxShadow:
+          "0 30px 50px -28px rgba(28,24,20,0.22), 0 8px 18px -10px rgba(28,24,20,0.10)",
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/work/jubo.png"
         alt=""
         style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
