@@ -590,7 +590,7 @@ function PortraitImage({
         inset: 0,
         backgroundImage: "url(/esther-portrait.png)",
         backgroundSize: "cover",
-        backgroundPosition: "15% bottom",
+        backgroundPosition: "15% center",
         display: "flex",
         alignItems: "flex-end",
         justifyContent: "flex-start",
