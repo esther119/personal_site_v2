@@ -377,7 +377,7 @@ export function MuseumHero({
             position: "absolute",
             right: 110,
             top: 165,
-            maxWidth: 600,
+            maxWidth: 460,
             zIndex: 2,
             textAlign: "left",
           }}
@@ -401,15 +401,14 @@ export function MuseumHero({
             style={{
               fontFamily: styles.serif,
               fontWeight: 400,
-              fontSize: 124,
-              lineHeight: 0.95,
+              fontSize: 92,
+              lineHeight: 1.05,
               letterSpacing: "-0.02em",
               margin: 0,
             }}
           >
-            Engineer
+            Engineer with
             <br />
-            with{" "}
             <span
               style={{
                 fontStyle: "italic",
