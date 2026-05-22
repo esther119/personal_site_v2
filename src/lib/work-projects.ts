@@ -6,6 +6,7 @@ export type Plate = {
   aspect?: number;
   image?: string;
   video?: string;
+  objectPosition?: string;
 };
 
 export type WorkProject = {
@@ -65,7 +66,7 @@ export const WORK_PROJECTS: WorkProject[] = [
     results:
       "My managers Julian Alvarez 🚀 and David Glass fully endorsed this. They laughed so hard when playing.",
     plates: [
-      { device: "raw", caption: "Title screen — pick a manager, pick an object", aspect: 16 / 10, image: "/work/manager.png" },
+      { device: "raw", caption: "Title screen — pick a manager, pick an object", aspect: 16 / 10, image: "/work/manager.png", objectPosition: "left top" },
     ],
     meta: [
       { label: "Year", value: "2025" },
