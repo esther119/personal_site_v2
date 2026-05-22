@@ -598,8 +598,8 @@ function MinervaTile() {
   );
 }
 
-// ─── Tile III — Learn.xyz phone ───────────────────────────────────────────
-function LearnTile() {
+// ─── Phone-screenshot helper ─────────────────────────────────────────────
+function PhoneImageTile({ src, isVideo = false }: { src: string; isVideo?: boolean }) {
   return (
     <div
       style={{
@@ -632,131 +632,35 @@ function LearnTile() {
           width: "100%",
           height: "100%",
           borderRadius: 24,
-          background: "linear-gradient(180deg, #1c1814 0%, #2a2520 100%)",
           overflow: "hidden",
-          position: "relative",
-          display: "grid",
-          gridTemplateRows: "38px 1fr",
+          background: "#000",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "0 22px",
-            fontFamily: s.sans,
-            fontWeight: 600,
-            fontSize: 13,
-            color: "#fff",
-          }}
-        >
-          <span>9:41</span>
-          <span style={{ display: "flex", gap: 4, alignItems: "center", fontSize: 11 }}>
-            ●●● ⌃
-          </span>
-        </div>
-
-        <div style={{ padding: "12px 20px 22px", display: "grid", gap: 14, alignContent: "start" }}>
-          <div
-            style={{
-              fontFamily: s.mono,
-              fontSize: 9,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "#a89e87",
-            }}
-          >
-            Today&apos;s lesson · 03
-          </div>
-
-          <div
-            style={{
-              width: "100%",
-              aspectRatio: "1.2 / 1",
-              borderRadius: 14,
-              background: "linear-gradient(135deg, #d9b04c 0%, #c47a3b 55%, #7a3e2e 100%)",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage:
-                  "repeating-linear-gradient(45deg, rgba(28,24,20,0.10) 0 2px, transparent 2px 14px)",
-              }}
-            />
-            <span
-              style={{
-                position: "absolute",
-                bottom: 12,
-                left: 14,
-                fontFamily: s.serif,
-                fontStyle: "italic",
-                fontSize: 22,
-                color: "#fff",
-                lineHeight: 1.0,
-                textShadow: "0 2px 12px rgba(0,0,0,0.25)",
-                maxWidth: "85%",
-              }}
-            >
-              Greek myths,
-              <br />
-              retold in 12 minutes.
-            </span>
-          </div>
-
-          <div style={{ display: "grid", gap: 8 }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                fontFamily: s.mono,
-                fontSize: 9,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#a89e87",
-              }}
-            >
-              <span>3 of 7</span>
-              <span>45%</span>
-            </div>
-            <div
-              style={{
-                height: 4,
-                background: "rgba(255,255,255,0.12)",
-                borderRadius: 2,
-                overflow: "hidden",
-              }}
-            >
-              <div style={{ width: "45%", height: "100%", background: s.warm }} />
-            </div>
-          </div>
-
-          <button
-            style={{
-              marginTop: 4,
-              padding: "13px 0",
-              borderRadius: 999,
-              background: s.warm,
-              color: s.ink,
-              border: "none",
-              cursor: "pointer",
-              fontFamily: s.mono,
-              fontSize: 10,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-            }}
-          >
-            Continue
-          </button>
-        </div>
+        {isVideo ? (
+          <video
+            src={src}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src}
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        )}
       </div>
     </div>
   );
+}
+
+// ─── Tile III — Learn.xyz phone ───────────────────────────────────────────
+function LearnTile() {
+  return <PhoneImageTile src="/work/learn.png" />;
 }
 
 // ─── Tile IV — Meta confidential ──────────────────────────────────────────
@@ -852,149 +756,9 @@ function MetaTile() {
   );
 }
 
-// ─── Tile V — Jungle AI (streak + tree growth) ────────────────────────────
+// ─── Tile V — Jungle AI (phone screenshot) ───────────────────────────────
 function JungleTile() {
-  return (
-    <div
-      style={{
-        width: 260,
-        height: 500,
-        borderRadius: 32,
-        padding: 8,
-        background: s.ink,
-        position: "relative",
-        boxShadow:
-          "0 36px 56px -28px rgba(28,24,20,0.38), 0 12px 22px -10px rgba(28,24,20,0.22)",
-        boxSizing: "border-box",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: 14,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 64,
-          height: 18,
-          borderRadius: 10,
-          background: "#000",
-          zIndex: 2,
-        }}
-      />
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          borderRadius: 24,
-          background: "linear-gradient(180deg, #2a3a26 0%, #1c2418 100%)",
-          overflow: "hidden",
-          position: "relative",
-          display: "grid",
-          gridTemplateRows: "38px auto 1fr auto",
-          padding: "0 16px 20px",
-          color: "#e8e0cd",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "0 6px",
-            fontFamily: s.sans,
-            fontWeight: 600,
-            fontSize: 13,
-            color: "#fff",
-          }}
-        >
-          <span>9:41</span>
-          <span style={{ fontSize: 11 }}>●●● ⌃</span>
-        </div>
-
-        <div
-          style={{
-            marginTop: 4,
-            fontFamily: s.mono,
-            fontSize: 9,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: "#a9c69b",
-          }}
-        >
-          7-day streak · 142 cards
-        </div>
-
-        {/* Tree */}
-        <div
-          style={{
-            position: "relative",
-            display: "grid",
-            placeItems: "center",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              bottom: 30,
-              width: 110,
-              height: 110,
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle at 35% 35%, #6fae57 0%, #3f7a32 65%, #285222 100%)",
-              boxShadow: "0 14px 28px rgba(0,0,0,0.35)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              width: 10,
-              height: 70,
-              background: "linear-gradient(to bottom, #6b4a2e, #3d2b1a)",
-              borderRadius: 4,
-            }}
-          />
-          {/* Sparkle */}
-          <div
-            style={{
-              position: "absolute",
-              top: 30,
-              right: 40,
-              fontSize: 16,
-              color: s.warm,
-            }}
-          >
-            ✦
-          </div>
-        </div>
-
-        {/* Streak grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(7, 1fr)",
-            gap: 4,
-            marginTop: 8,
-          }}
-        >
-          {Array.from({ length: 21 }).map((_, i) => {
-            const lit = [0, 1, 3, 4, 5, 8, 9, 10, 12, 14, 15, 17, 18, 20].includes(i);
-            return (
-              <div
-                key={i}
-                style={{
-                  aspectRatio: "1 / 1",
-                  borderRadius: 3,
-                  background: lit ? s.warm : "rgba(255,255,255,0.08)",
-                  opacity: lit ? 0.9 : 1,
-                }}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
+  return <PhoneImageTile src="/work/jungle-tile.png" />;
 }
 
 // ─── Tile VI — Hit Your Manager! (holiday game) ───────────────────────────
