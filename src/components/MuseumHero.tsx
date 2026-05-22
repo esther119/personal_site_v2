@@ -20,7 +20,13 @@ function shortestAngleDelta(target: number, current: number) {
   return d;
 }
 
-export function MuseumHero() {
+export function MuseumHero({
+  showFooter = true,
+  heroHeight,
+}: {
+  showFooter?: boolean;
+  heroHeight?: number | string;
+} = {}) {
   const portraitRef = useRef<HTMLDivElement>(null);
   const [reveal, setReveal] = useState<Reveal>({
     mx: 1.5,
@@ -195,7 +201,8 @@ export function MuseumHero() {
     <div
       style={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: heroHeight ?? "100vh",
+        height: heroHeight,
         background: styles.paper,
         color: styles.ink,
         fontFamily: styles.sans,
@@ -292,8 +299,10 @@ export function MuseumHero() {
         style={{
           position: "relative",
           width: "100%",
-          height: "calc(100vh - 100px)",
-          minHeight: 700,
+          height: heroHeight
+            ? `calc(${typeof heroHeight === "number" ? heroHeight + "px" : heroHeight} - 100px)`
+            : "calc(100vh - 100px)",
+          minHeight: heroHeight ? undefined : 700,
           overflow: "hidden",
         }}
       >
@@ -539,29 +548,31 @@ export function MuseumHero() {
       </div>
 
       {/* Footer cards */}
-      <div
-        style={{
-          position: "absolute",
-          left: 44,
-          right: 44,
-          bottom: 24,
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: 14,
-        }}
-      >
-        <FooterCard icon="◐" kicker="About" title="A confused human, from Taipei" />
-        <FooterCard
-          icon="▤"
-          kicker="Work"
-          title="Engineering at Meta, research at Google"
-        />
-        <FooterCard
-          icon="✦"
-          kicker="Now"
-          title="Building marginalia, walking NYC blocks"
-        />
-      </div>
+      {showFooter && (
+        <div
+          style={{
+            position: "absolute",
+            left: 44,
+            right: 44,
+            bottom: 24,
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gap: 14,
+          }}
+        >
+          <FooterCard icon="◐" kicker="About" title="A confused human, from Taipei" />
+          <FooterCard
+            icon="▤"
+            kicker="Work"
+            title="Engineering at Meta, research at Google"
+          />
+          <FooterCard
+            icon="✦"
+            kicker="Now"
+            title="Building marginalia, walking NYC blocks"
+          />
+        </div>
+      )}
     </div>
   );
 }
