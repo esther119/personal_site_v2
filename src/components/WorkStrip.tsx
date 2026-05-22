@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ReactNode } from "react";
 
 const s = {
@@ -135,9 +136,16 @@ export function WorkStrip() {
               }}
             >
               {tiles.map((t) => (
-                <TilePedestal key={`${i}-${t.key}`} title={t.title} year={t.year}>
-                  {t.content}
-                </TilePedestal>
+                <Link
+                  key={`${i}-${t.key}`}
+                  href={`/work/${t.key}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  aria-label={t.title}
+                >
+                  <TilePedestal title={t.title} year={t.year}>
+                    {t.content}
+                  </TilePedestal>
+                </Link>
               ))}
             </div>
           ))}
