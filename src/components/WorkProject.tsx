@@ -66,6 +66,10 @@ export function WorkProjectPage({ project }: { project: WorkProjectT }) {
             paddingRight: 18,
           }}
         >
+          <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 18 }}>
+            <BackButton />
+          </div>
+
           <h1
             style={{
               fontFamily: s.sans,
@@ -207,6 +211,31 @@ function WorkNav() {
         </button>
       </div>
     </div>
+  );
+}
+
+function BackButton() {
+  return (
+    <Link
+      href="/"
+      aria-label="Back home"
+      style={{
+        width: 44,
+        height: 44,
+        borderRadius: "50%",
+        border: `1px solid ${s.ink}`,
+        background: "transparent",
+        color: s.ink,
+        display: "grid",
+        placeItems: "center",
+        cursor: "pointer",
+        fontSize: 17,
+        lineHeight: 1,
+        textDecoration: "none",
+      }}
+    >
+      ←
+    </Link>
   );
 }
 
