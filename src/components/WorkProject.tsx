@@ -623,17 +623,28 @@ function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
           style={{
             width: "100%",
             aspectRatio: String(aspect),
-            padding: 22,
+            padding: plate.image ? 0 : 22,
             background: "#fbf8f1",
             border: `1px solid ${s.rule}`,
             boxShadow:
               "0 24px 40px -22px rgba(28,24,20,0.16), 0 6px 14px -8px rgba(28,24,20,0.08)",
             position: "relative",
             boxSizing: "border-box",
-            backgroundImage:
-              "repeating-linear-gradient(0deg, rgba(28,24,20,0.045) 0 1px, transparent 1px 22px)",
+            overflow: "hidden",
+            backgroundImage: plate.image
+              ? undefined
+              : "repeating-linear-gradient(0deg, rgba(28,24,20,0.045) 0 1px, transparent 1px 22px)",
           }}
-        />
+        >
+          {plate.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={plate.image}
+              alt={plate.caption}
+              style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+            />
+          )}
+        </div>
         <Caption label={label} caption={plate.caption} kicker="Fig." />
       </figure>
     );
@@ -652,9 +663,29 @@ function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
               "0 28px 50px -28px rgba(28,24,20,0.30), 0 8px 18px -10px rgba(28,24,20,0.18)",
             overflow: "hidden",
             backgroundImage:
-              "linear-gradient(135deg, #1c1814 0%, #2a2520 60%, #3b342a 100%)",
+              plate.image || plate.video
+                ? undefined
+                : "linear-gradient(135deg, #1c1814 0%, #2a2520 60%, #3b342a 100%)",
           }}
-        />
+        >
+          {plate.video ? (
+            <video
+              src={plate.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          ) : plate.image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={plate.image}
+              alt={plate.caption}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          ) : null}
+        </div>
         <Caption label={label} caption={plate.caption} kicker="Fig." />
       </figure>
     );
@@ -711,10 +742,21 @@ function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
             width: "100%",
             height: "100%",
             borderRadius: D.screenR,
-            background:
-              "linear-gradient(135deg, #d9b04c 0%, #c47a3b 55%, #7a3e2e 100%)",
+            overflow: "hidden",
+            background: plate.image
+              ? "#000"
+              : "linear-gradient(135deg, #d9b04c 0%, #c47a3b 55%, #7a3e2e 100%)",
           }}
-        />
+        >
+          {plate.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={plate.image}
+              alt={plate.caption}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          )}
+        </div>
       </div>
       <Caption label={label} caption={plate.caption} kicker="Fig." />
     </figure>

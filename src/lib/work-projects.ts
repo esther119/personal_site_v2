@@ -4,6 +4,8 @@ export type Plate = {
   device: "raw" | "figure" | "phone" | "tablet" | "laptop" | "desktop";
   caption: string;
   aspect?: number;
+  image?: string;
+  video?: string;
 };
 
 export type WorkProject = {
@@ -42,7 +44,7 @@ export const WORK_PROJECTS: WorkProject[] = [
       "1M users across desktop + mobile; featured in Forbes 30 Under 30, 2026 (Education).",
     ],
     plates: [
-      { device: "phone", caption: "Streak calendar + tree-growth feedback after a session" },
+      { device: "phone", caption: "Streak calendar + tree-growth feedback after a session", image: "/work/jungle.png" },
     ],
     meta: [
       { label: "Year", value: "2025" },
@@ -63,7 +65,7 @@ export const WORK_PROJECTS: WorkProject[] = [
     results:
       "My managers Julian Alvarez 🚀 and David Glass fully endorsed this. They laughed so hard when playing.",
     plates: [
-      { device: "raw", caption: "Title screen — pick a manager, pick an object", aspect: 16 / 10 },
+      { device: "raw", caption: "Title screen — pick a manager, pick an object", aspect: 16 / 10, image: "/work/manager.png" },
     ],
     meta: [
       { label: "Year", value: "2025" },
@@ -98,6 +100,7 @@ export const WORK_PROJECTS: WorkProject[] = [
         caption:
           "Gmail thread view, with the new label and recent labelled threads",
         aspect: 16 / 10,
+        video: "/work/email.mp4",
       },
     ],
     meta: [
@@ -123,6 +126,7 @@ export const WORK_PROJECTS: WorkProject[] = [
         device: "figure",
         caption: "Methodology — flowchart of the analytical pipeline",
         aspect: 16 / 10,
+        image: "/work/minerva.png",
       },
     ],
     meta: [
@@ -150,7 +154,7 @@ export const WORK_PROJECTS: WorkProject[] = [
       "Closed a $3M seed.",
     ],
     plates: [
-      { device: "phone", caption: "Course intro screen — generated cover art and title" },
+      { device: "phone", caption: "Course intro screen — generated cover art and title", image: "/work/learn.png" },
     ],
     meta: [
       { label: "Year", value: "2024" },
