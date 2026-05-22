@@ -66,37 +66,6 @@ export function WorkProjectPage({ project }: { project: WorkProjectT }) {
             paddingRight: 18,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 18,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: s.mono,
-                fontSize: 11,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: s.soft,
-                display: "flex",
-                gap: 14,
-                alignItems: "center",
-              }}
-            >
-              <span style={{ width: 28, height: 1, background: s.ink }} />
-              <span style={{ color: s.ink }}>Plate {project.plate}</span>
-              <span style={{ color: s.faint }}>·</span>
-              <span>
-                {String(index + 1).padStart(2, "0")} of{" "}
-                {String(total).padStart(2, "0")}
-              </span>
-            </div>
-            <BackButton />
-          </div>
-
           <h1
             style={{
               fontFamily: s.sans,
@@ -238,31 +207,6 @@ function WorkNav() {
         </button>
       </div>
     </div>
-  );
-}
-
-function BackButton() {
-  return (
-    <Link
-      href="/work"
-      aria-label="Back to works"
-      style={{
-        width: 44,
-        height: 44,
-        borderRadius: "50%",
-        border: `1px solid ${s.ink}`,
-        background: "transparent",
-        color: s.ink,
-        display: "grid",
-        placeItems: "center",
-        cursor: "pointer",
-        fontSize: 17,
-        lineHeight: 1,
-        textDecoration: "none",
-      }}
-    >
-      ←
-    </Link>
   );
 }
 
