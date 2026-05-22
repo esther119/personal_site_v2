@@ -761,115 +761,26 @@ function JungleTile() {
   return <PhoneImageTile src="/work/jungle-tile.png" />;
 }
 
-// ─── Tile VI — Hit Your Manager! (holiday game) ───────────────────────────
+// ─── Tile VI — Hit Your Manager! (game screenshot) ────────────────────────
 function ManagerTile() {
   return (
     <div
       style={{
         width: 440,
         height: 320,
-        borderRadius: 12,
-        background: "linear-gradient(180deg, #b32424 0%, #7c1414 100%)",
-        position: "relative",
+        borderRadius: 10,
+        background: "#1c1814",
         overflow: "hidden",
         boxShadow:
           "0 30px 50px -28px rgba(28,24,20,0.32), 0 8px 18px -10px rgba(28,24,20,0.18)",
-        color: "#fef6d8",
-        padding: 28,
-        display: "grid",
-        gridTemplateRows: "auto 1fr auto",
-        fontFamily: s.sans,
       }}
     >
-      {/* Snow */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.85) 1px, transparent 1.5px), radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1.5px)",
-          backgroundSize: "60px 60px, 40px 40px",
-          backgroundPosition: "0 0, 20px 30px",
-          opacity: 0.5,
-          pointerEvents: "none",
-        }}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/work/manager.png"
+        alt=""
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
-      <div
-        style={{
-          fontFamily: s.mono,
-          fontSize: 10,
-          letterSpacing: "0.22em",
-          textTransform: "uppercase",
-          color: "#f4d77a",
-          position: "relative",
-        }}
-      >
-        Holiday · 2025
-      </div>
-      <div style={{ position: "relative", display: "grid", alignContent: "center", gap: 10 }}>
-        <div
-          style={{
-            fontFamily: s.serif,
-            fontStyle: "italic",
-            fontSize: 46,
-            lineHeight: 0.95,
-            letterSpacing: "-0.02em",
-            color: "#fff",
-            textShadow: "0 4px 14px rgba(0,0,0,0.35)",
-          }}
-        >
-          Hit your <span style={{ color: "#f4d77a" }}>manager</span>!
-        </div>
-        <div
-          style={{
-            fontFamily: s.sans,
-            fontSize: 13,
-            color: "rgba(254,246,216,0.85)",
-            maxWidth: 320,
-          }}
-        >
-          Pick an object. Pick a manager. Throw. Repeat until December calms down.
-        </div>
-      </div>
-      <div
-        style={{
-          position: "relative",
-          display: "flex",
-          gap: 10,
-          alignItems: "center",
-        }}
-      >
-        {["🎁", "🎄", "❄️", "⛄"].map((e, i) => (
-          <span
-            key={i}
-            style={{
-              width: 38,
-              height: 38,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.12)",
-              border: "1px solid rgba(255,255,255,0.25)",
-              display: "grid",
-              placeItems: "center",
-              fontSize: 18,
-            }}
-          >
-            {e}
-          </span>
-        ))}
-        <span
-          style={{
-            marginLeft: "auto",
-            fontFamily: s.mono,
-            fontSize: 10,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: "#f4d77a",
-          }}
-        >
-          Play ↗
-        </span>
-      </div>
     </div>
   );
 }
