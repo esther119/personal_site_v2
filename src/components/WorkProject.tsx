@@ -662,7 +662,7 @@ function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
             <img
               src={plate.image}
               alt={plate.caption}
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
             />
           ) : null}
         </div>
