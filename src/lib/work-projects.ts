@@ -110,34 +110,8 @@ export const WORK_PROJECTS: WorkProject[] = [
     ],
   },
   {
-    slug: "minerva",
-    plate: "IV",
-    year: "2023",
-    medium: "research · nlp · school project",
-    title: "How English Fluency Affects Grading at Minerva",
-    purpose:
-      "My school, Minerva, comprises non-English native students from 40+ countries. If a classmate speaks like Shakespeare, but I speak simply like a kindergartener — will the professor bias their grading?",
-    work:
-      "This project examines the potential bias in students' grades due to English fluency through NLP analysis. Using topic modelling, clustering, hypothesis testing, and neural-network analyses, I investigated the influence of word choice, readability, and language sophistication on professors' evaluations of student knowledge.",
-    results:
-      "Positive and significant grade-fluency correlations across all colleges — least significant for the Computer Science college.",
-    plates: [
-      {
-        device: "figure",
-        caption: "Methodology — flowchart of the analytical pipeline",
-        aspect: 16 / 10,
-        image: "/work/minerva.png",
-      },
-    ],
-    meta: [
-      { label: "Year", value: "2023" },
-      { label: "Type", value: "School research · Minerva" },
-      { label: "Paper", value: "Methodology ↗", link: true },
-    ],
-  },
-  {
     slug: "learn",
-    plate: "V",
+    plate: "IV",
     year: "2024",
     medium: "engineering · ai · founding role",
     title: "Founding AI Engineer @ Learn.xyz",
@@ -164,7 +138,7 @@ export const WORK_PROJECTS: WorkProject[] = [
   },
   {
     slug: "meta",
-    plate: "VI",
+    plate: "V",
     year: "2022–23",
     medium: "data science · meta",
     title: "Data Science @ Meta",
@@ -182,7 +156,7 @@ export const WORK_PROJECTS: WorkProject[] = [
   },
   {
     slug: "jubo",
-    plate: "VII",
+    plate: "VI",
     year: "2021",
     medium: "data engineering · health-tech",
     title: "Data Engineering / Science @ Jubo",
