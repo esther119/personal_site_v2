@@ -528,14 +528,15 @@ function Pager({ prev, next }: { prev: WorkProjectT; next: WorkProjectT }) {
 
 // ────────────────────────────── Image card ─────────────────────────────────
 function ProjectImageCard({ project }: { project: WorkProjectT }) {
-  const plate = project.plates?.[0];
+  const plates = project.plates ?? [];
+  const multi = plates.length > 1;
   return (
     <div
       style={{
         background: "#f4eedd",
         border: `1px solid ${s.rule2}`,
         borderRadius: 14,
-        padding: 44,
+        padding: multi ? 28 : 44,
         height: 680,
         position: "relative",
         display: "grid",
@@ -544,8 +545,25 @@ function ProjectImageCard({ project }: { project: WorkProjectT }) {
         boxSizing: "border-box",
       }}
     >
-      {plate ? (
-        <DeviceShot plate={plate} label={`${project.plate}.1`} />
+      {plates.length > 0 ? (
+        <div
+          style={{
+            display: "flex",
+            gap: 24,
+            alignItems: "flex-start",
+            justifyContent: "center",
+            flexWrap: "nowrap",
+          }}
+        >
+          {plates.map((plate, i) => (
+            <DeviceShot
+              key={i}
+              plate={plate}
+              label={`${project.plate}.${i + 1}`}
+              compact={multi}
+            />
+          ))}
+        </div>
       ) : project.confidential ? (
         <ConfidentialBody text={project.confidential} />
       ) : null}
@@ -584,7 +602,15 @@ function ConfidentialBody({ text }: { text: string }) {
   );
 }
 
-function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
+function DeviceShot({
+  plate,
+  label,
+  compact = false,
+}: {
+  plate: Plate;
+  label: string;
+  compact?: boolean;
+}) {
   const aspect = plate.aspect ?? 16 / 10;
 
   if (plate.device === "figure") {
@@ -662,7 +688,13 @@ function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
             <img
               src={plate.image}
               alt={plate.caption}
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: plate.objectPosition ?? "top",
+                display: "block",
+              }}
             />
           ) : null}
         </div>
@@ -672,12 +704,19 @@ function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
   }
 
   // device chrome (phone / tablet / laptop / desktop)
-  const D = {
-    phone: { w: 240, h: 500, bezel: 10, radius: 32, screenR: 22 },
-    tablet: { w: 460, h: 620, bezel: 14, radius: 18, screenR: 6 },
-    laptop: { w: 560, h: 360, bezel: 8, radius: 12, screenR: 4 },
-    desktop: { w: 560, h: 360, bezel: 6, radius: 6, screenR: 2 },
-  }[plate.device];
+  const D = compact
+    ? {
+        phone: { w: 200, h: 420, bezel: 8, radius: 28, screenR: 20 },
+        tablet: { w: 360, h: 500, bezel: 12, radius: 16, screenR: 6 },
+        laptop: { w: 460, h: 300, bezel: 8, radius: 12, screenR: 4 },
+        desktop: { w: 460, h: 300, bezel: 6, radius: 6, screenR: 2 },
+      }[plate.device]
+    : {
+        phone: { w: 240, h: 500, bezel: 10, radius: 32, screenR: 22 },
+        tablet: { w: 460, h: 620, bezel: 14, radius: 18, screenR: 6 },
+        laptop: { w: 560, h: 360, bezel: 8, radius: 12, screenR: 4 },
+        desktop: { w: 560, h: 360, bezel: 6, radius: 6, screenR: 2 },
+      }[plate.device];
 
   return (
     <figure

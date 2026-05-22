@@ -6,6 +6,7 @@ export type Plate = {
   aspect?: number;
   image?: string;
   video?: string;
+  objectPosition?: string;
 };
 
 export type WorkProject = {
@@ -65,7 +66,7 @@ export const WORK_PROJECTS: WorkProject[] = [
     results:
       "My managers Julian Alvarez 🚀 and David Glass fully endorsed this. They laughed so hard when playing.",
     plates: [
-      { device: "raw", caption: "Title screen — pick a manager, pick an object", aspect: 16 / 10, image: "/work/manager.png" },
+      { device: "raw", caption: "Title screen — pick a manager, pick an object", aspect: 16 / 10, image: "/work/manager.png", objectPosition: "left top" },
     ],
     meta: [
       { label: "Year", value: "2025" },
@@ -110,34 +111,8 @@ export const WORK_PROJECTS: WorkProject[] = [
     ],
   },
   {
-    slug: "minerva",
-    plate: "IV",
-    year: "2023",
-    medium: "research · nlp · school project",
-    title: "How English Fluency Affects Grading at Minerva",
-    purpose:
-      "My school, Minerva, comprises non-English native students from 40+ countries. If a classmate speaks like Shakespeare, but I speak simply like a kindergartener — will the professor bias their grading?",
-    work:
-      "This project examines the potential bias in students' grades due to English fluency through NLP analysis. Using topic modelling, clustering, hypothesis testing, and neural-network analyses, I investigated the influence of word choice, readability, and language sophistication on professors' evaluations of student knowledge.",
-    results:
-      "Positive and significant grade-fluency correlations across all colleges — least significant for the Computer Science college.",
-    plates: [
-      {
-        device: "figure",
-        caption: "Methodology — flowchart of the analytical pipeline",
-        aspect: 16 / 10,
-        image: "/work/minerva.png",
-      },
-    ],
-    meta: [
-      { label: "Year", value: "2023" },
-      { label: "Type", value: "School research · Minerva" },
-      { label: "Paper", value: "Methodology ↗", link: true },
-    ],
-  },
-  {
     slug: "learn",
-    plate: "V",
+    plate: "IV",
     year: "2024",
     medium: "engineering · ai · founding role",
     title: "Founding AI Engineer @ Learn.xyz",
@@ -154,7 +129,8 @@ export const WORK_PROJECTS: WorkProject[] = [
       "Closed a $3M seed.",
     ],
     plates: [
-      { device: "phone", caption: "Course intro screen — generated cover art and title", image: "/work/learn.png" },
+      { device: "phone", caption: "In-lesson view — generated cover art and copy", image: "/work/learn.png" },
+      { device: "phone", caption: "Course intro — generated hero, title, and CTA", image: "/work/learn-2.png" },
     ],
     meta: [
       { label: "Year", value: "2024" },
@@ -164,7 +140,7 @@ export const WORK_PROJECTS: WorkProject[] = [
   },
   {
     slug: "meta",
-    plate: "VI",
+    plate: "V",
     year: "2022–23",
     medium: "data science · meta",
     title: "Data Science @ Meta",
@@ -178,6 +154,38 @@ export const WORK_PROJECTS: WorkProject[] = [
       { label: "Year", value: "2022" },
       { label: "Role", value: "Data Scientist" },
       { label: "Status", value: "Confidential" },
+    ],
+  },
+  {
+    slug: "jubo",
+    plate: "VI",
+    year: "2021",
+    medium: "data engineering · health-tech",
+    title: "Data Engineering / Science @ Jubo",
+    purpose:
+      "Designers, the CEO, and the customer-success team lacked insight into how Jubo's product modules were actually performing in the field — and which design decisions were moving the needle.",
+    work: [
+      "Defined product-analytics metrics for monitoring client performance across 84 modules.",
+      "Built an Airflow automation pipeline that ingests usage data and refreshes dashboards on a schedule.",
+      "Designed facility-health visualisations the CEO and customer-success team use to talk to clients.",
+    ],
+    results: [
+      "Surfaced facility-health metrics across 84 modules on 1M+ data points.",
+      "Cut report-prep time by 90%, freeing the team to focus on retention.",
+      "Quantified design effectiveness and helped reduce customer churn.",
+    ],
+    plates: [
+      {
+        device: "raw",
+        caption: "Facility-health dashboard — module scores across one client over six months",
+        aspect: 16 / 10,
+        image: "/work/jubo.png",
+      },
+    ],
+    meta: [
+      { label: "Year", value: "2021" },
+      { label: "Role", value: "Data Engineer / Scientist" },
+      { label: "Outcome", value: "–90% report time" },
     ],
   },
 ];

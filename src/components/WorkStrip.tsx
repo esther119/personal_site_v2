@@ -65,9 +65,9 @@ export function WorkStrip() {
     { key: "jungle", title: "Founding Full Stack · Jungle AI", year: "2025", content: <JungleTile /> },
     { key: "manager", title: "Hit Your Manager! 🎄🎮", year: "2025", content: <ManagerTile /> },
     { key: "email", title: "AI Auto Email Follow Up", year: "2024", content: <EmailTile /> },
-    { key: "minerva", title: "English Fluency at Minerva", year: "2023", content: <MinervaTile /> },
     { key: "learn", title: "Founding AI Engineer · Learn.xyz", year: "2024", content: <LearnTile /> },
     { key: "meta", title: "Data Science · Meta", year: "2022", content: <MetaTile /> },
+    { key: "jubo", title: "Data Engineering · Jubo", year: "2021", content: <JuboTile /> },
   ];
 
   return (
@@ -105,7 +105,7 @@ export function WorkStrip() {
           }}
         >
           <span style={{ width: 38, height: 1, background: s.ink }} />
-          <span>Works · 06 · 2022 — 2025</span>
+          <span>Works · 06 · 2021 — 2025</span>
         </span>
         <span
           style={{
@@ -456,147 +456,6 @@ function EmailTile() {
   );
 }
 
-// ─── Tile II — Minerva fluency study ──────────────────────────────────────
-function MinervaTile() {
-  return (
-    <div
-      style={{
-        width: 360,
-        height: 460,
-        background: "#f4eedd",
-        border: `1px solid ${s.rule}`,
-        boxShadow:
-          "0 24px 38px -22px rgba(28,24,20,0.14), 0 4px 10px -6px rgba(28,24,20,0.08)",
-        padding: 24,
-        display: "grid",
-        gridTemplateRows: "auto auto 1fr auto",
-        position: "relative",
-        backgroundImage:
-          "repeating-linear-gradient(0deg, rgba(28,24,20,0.035) 0 1px, transparent 1px 22px)",
-      }}
-    >
-      <div
-        style={{
-          fontFamily: s.mono,
-          fontSize: 10,
-          letterSpacing: "0.22em",
-          textTransform: "uppercase",
-          color: s.soft,
-          marginBottom: 14,
-        }}
-      >
-        Minerva · NLP analysis
-      </div>
-      <h3
-        style={{
-          fontFamily: s.serif,
-          fontWeight: 400,
-          fontStyle: "italic",
-          fontSize: 30,
-          lineHeight: 1.05,
-          letterSpacing: "-0.01em",
-          margin: 0,
-          color: s.ink,
-          marginBottom: 22,
-        }}
-      >
-        Does talking like Shakespeare get you a better grade?
-      </h3>
-      <div style={{ display: "grid", gridTemplateRows: "1fr 1px auto", gap: 4, marginBottom: 14 }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            gap: 10,
-            alignItems: "end",
-            height: 160,
-          }}
-        >
-          {[42, 58, 65, 71, 84, 92].map((h, i) => (
-            <div
-              key={i}
-              style={{
-                height: `${h}%`,
-                background: i < 3 ? "#c9c0ab" : s.warm,
-                border: `1px solid ${s.rule}`,
-                borderBottom: "none",
-                position: "relative",
-              }}
-            >
-              <span
-                style={{
-                  position: "absolute",
-                  top: -16,
-                  left: 0,
-                  right: 0,
-                  textAlign: "center",
-                  fontFamily: s.mono,
-                  fontSize: 9,
-                  color: s.soft,
-                }}
-              >
-                {[2.1, 2.6, 2.9, 3.1, 3.4, 3.7][i]}
-              </span>
-            </div>
-          ))}
-        </div>
-        <div style={{ background: s.ink, height: 1 }} />
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            gap: 10,
-            fontFamily: s.mono,
-            fontSize: 9,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: s.soft,
-            textAlign: "center",
-          }}
-        >
-          <span>low</span>
-          <span>·</span>
-          <span>·</span>
-          <span>·</span>
-          <span>·</span>
-          <span>high</span>
-        </div>
-      </div>
-      <div
-        style={{
-          paddingTop: 14,
-          borderTop: `1px solid ${s.rule2}`,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "baseline",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: s.mono,
-            fontSize: 10,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: s.soft,
-          }}
-        >
-          Pearson r
-        </span>
-        <span
-          style={{
-            fontFamily: s.serif,
-            fontStyle: "italic",
-            fontSize: 26,
-            color: s.ink,
-            letterSpacing: "-0.01em",
-          }}
-        >
-          + 0.31
-        </span>
-      </div>
-    </div>
-  );
-}
 
 // ─── Phone-screenshot helper ─────────────────────────────────────────────
 function PhoneImageTile({ src, isVideo = false }: { src: string; isVideo?: boolean }) {
@@ -643,14 +502,14 @@ function PhoneImageTile({ src, isVideo = false }: { src: string; isVideo?: boole
             loop
             muted
             playsInline
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={src}
             alt=""
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
           />
         )}
       </div>
@@ -780,6 +639,31 @@ function ManagerTile() {
         src="/work/manager.png"
         alt=""
         style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
+    </div>
+  );
+}
+
+// ─── Tile VII — Jubo facility-health dashboard ────────────────────────────
+function JuboTile() {
+  return (
+    <div
+      style={{
+        width: 460,
+        height: 320,
+        borderRadius: 10,
+        background: "#fbf8f1",
+        border: `1px solid ${s.rule2}`,
+        overflow: "hidden",
+        boxShadow:
+          "0 30px 50px -28px rgba(28,24,20,0.22), 0 8px 18px -10px rgba(28,24,20,0.10)",
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/work/jubo.png"
+        alt=""
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
       />
     </div>
   );
