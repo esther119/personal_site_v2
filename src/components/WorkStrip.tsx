@@ -644,14 +644,14 @@ function PhoneImageTile({ src, isVideo = false }: { src: string; isVideo?: boole
             loop
             muted
             playsInline
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={src}
             alt=""
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
           />
         )}
       </div>
