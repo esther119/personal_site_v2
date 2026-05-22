@@ -279,6 +279,9 @@ function BodyParagraph({ text }: { text: string }) {
 }
 
 function NumberedList({ items }: { items: string[] }) {
+  // Trio layout matching the Email page Features trio: warm numeral on top,
+  // body below. Multi-column when there are enough items to make it breathe.
+  const cols = items.length >= 5 ? 3 : items.length >= 3 ? 3 : items.length;
   return (
     <ol
       style={{
@@ -286,45 +289,43 @@ function NumberedList({ items }: { items: string[] }) {
         padding: 0,
         margin: 0,
         display: "grid",
-        gridTemplateColumns: "1fr",
-        rowGap: 16,
-        maxWidth: 1100,
+        gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        columnGap: 28,
+        rowGap: 24,
       }}
     >
       {items.map((item, i) => (
         <li
           key={i}
           style={{
-            display: "grid",
-            gridTemplateColumns: "38px 1fr",
-            gap: 14,
-            alignItems: "baseline",
-            paddingTop: 12,
+            paddingTop: 14,
             borderTop: `1px solid ${s.rule2}`,
           }}
         >
-          <span
+          <div
             style={{
               fontFamily: s.sans,
               fontWeight: 600,
-              fontSize: 20,
+              fontSize: 26,
               color: s.warm,
               fontVariantNumeric: "tabular-nums",
+              marginBottom: 10,
+              lineHeight: 1,
             }}
           >
             {String(i + 1).padStart(2, "0")}
-          </span>
-          <span
+          </div>
+          <div
             style={{
               fontFamily: s.sans,
               fontWeight: 400,
-              fontSize: 17,
-              lineHeight: 1.5,
-              color: s.ink,
+              fontSize: 14,
+              lineHeight: 1.45,
+              color: s.body,
             }}
           >
             {item}
-          </span>
+          </div>
         </li>
       ))}
     </ol>
