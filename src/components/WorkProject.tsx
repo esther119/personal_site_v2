@@ -723,19 +723,29 @@ function DeviceShot({ plate, label }: { plate: Plate; label: string }) {
             height: "100%",
             borderRadius: D.screenR,
             overflow: "hidden",
-            background: plate.image
-              ? "#000"
-              : "linear-gradient(135deg, #d9b04c 0%, #c47a3b 55%, #7a3e2e 100%)",
+            background:
+              plate.image || plate.video
+                ? "#000"
+                : "linear-gradient(135deg, #d9b04c 0%, #c47a3b 55%, #7a3e2e 100%)",
           }}
         >
-          {plate.image && (
+          {plate.video ? (
+            <video
+              src={plate.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          ) : plate.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={plate.image}
               alt={plate.caption}
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
-          )}
+          ) : null}
         </div>
       </div>
       <Caption label={label} caption={plate.caption} kicker="Fig." />
