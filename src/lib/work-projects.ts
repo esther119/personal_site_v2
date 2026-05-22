@@ -52,7 +52,6 @@ export const WORK_PROJECTS: WorkProject[] = [
     meta: [
       { label: "Year", value: "2025" },
       { label: "Role", value: "Founding Full Stack Engineer" },
-      { label: "Stack", value: "React Native · Electron · Firebase" },
       { label: "Press", value: "Forbes 30U30 ↗", link: true },
     ],
   },
@@ -74,7 +73,6 @@ export const WORK_PROJECTS: WorkProject[] = [
     meta: [
       { label: "Year", value: "2025" },
       { label: "Type", value: "Side project · Holiday game" },
-      { label: "Stack", value: "Next.js · Canvas · React" },
       { label: "Play", value: "Live demo ↗", link: true },
     ],
   },
@@ -110,7 +108,6 @@ export const WORK_PROJECTS: WorkProject[] = [
     meta: [
       { label: "Year", value: "2024" },
       { label: "Type", value: "Solo side project" },
-      { label: "Stack", value: "GPT-4 · Gmail API · Python" },
       { label: "Demo", value: "40K+ views ↗", link: true },
     ],
   },
@@ -136,7 +133,6 @@ export const WORK_PROJECTS: WorkProject[] = [
     meta: [
       { label: "Year", value: "2023" },
       { label: "Type", value: "School research · Minerva" },
-      { label: "Stack", value: "Python · NLP · scikit-learn" },
       { label: "Paper", value: "Methodology ↗", link: true },
     ],
   },
@@ -163,7 +159,6 @@ export const WORK_PROJECTS: WorkProject[] = [
     meta: [
       { label: "Year", value: "2024" },
       { label: "Role", value: "Founding AI Engineer" },
-      { label: "Stack", value: "Firebase · GCP · Pinecone · GPT-4" },
       { label: "Live", value: "learn.xyz ↗", link: true },
     ],
   },
@@ -182,7 +177,6 @@ export const WORK_PROJECTS: WorkProject[] = [
     meta: [
       { label: "Year", value: "2022" },
       { label: "Role", value: "Data Scientist" },
-      { label: "Stack", value: "Python · Hive · Levenshtein" },
       { label: "Status", value: "Confidential" },
     ],
   },
