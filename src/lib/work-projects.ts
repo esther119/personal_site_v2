@@ -6,6 +6,7 @@ export type Plate = {
   aspect?: number;
   image?: string;
   video?: string;
+  poster?: string;
   objectPosition?: string;
 };
 
@@ -45,7 +46,7 @@ export const WORK_PROJECTS: WorkProject[] = [
       "1M users across desktop + mobile; featured in Forbes 30 Under 30, 2026 (Education).",
     ],
     plates: [
-      { device: "raw", caption: "Streak calendar + tree-growth feedback after a session", aspect: 16 / 10, video: "/work/jungle.mp4" },
+      { device: "raw", caption: "Streak calendar + tree-growth feedback after a session", aspect: 16 / 10, video: "/work/jungle.mp4", poster: "/work/jungle-poster.jpg" },
     ],
     meta: [
       { label: "Year", value: "2025" },
@@ -102,6 +103,7 @@ export const WORK_PROJECTS: WorkProject[] = [
           "Gmail thread view, with the new label and recent labelled threads",
         aspect: 16 / 10,
         video: "/work/email.mp4",
+        poster: "/work/email-poster.jpg",
       },
     ],
     meta: [
