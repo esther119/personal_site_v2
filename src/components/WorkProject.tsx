@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
+import { VideoWithSkeleton } from "@/components/VideoWithSkeleton";
 import {
   FeatureItem,
   MetaRow,
@@ -675,14 +676,7 @@ function DeviceShot({
           }}
         >
           {plate.video ? (
-            <video
-              src={plate.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
+            <VideoWithSkeleton src={plate.video} poster={plate.poster} />
           ) : plate.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -769,14 +763,7 @@ function DeviceShot({
           }}
         >
           {plate.video ? (
-            <video
-              src={plate.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
+            <VideoWithSkeleton src={plate.video} poster={plate.poster} />
           ) : plate.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
